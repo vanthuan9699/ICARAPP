@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffccc"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ĐĂNG NHẬP"
+        android:textSize="30dp"
+        android:textColor="#F50808"/>
+
+    <EditText
+        android:id="@+id/edt_user"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginTop="20dp"
+        android:hint="UserName"
+        android:background="@drawable/gray_round_bg"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/edt_pass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="10dp"
+        android:hint="Password"
+        android:padding="10dp"
+        android:background="@drawable/gray_round_bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_marginRight="20dp"
+            android:id="@+id/btn_dangnhap"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Đăng Nhập"
+            android:textColor="#058DFA"/>
+
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Thoát"
+            android:textColor="#058DFA"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
