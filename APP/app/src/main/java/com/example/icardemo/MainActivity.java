@@ -9,9 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 public class MainActivity extends AppCompatActivity {
-    EditText edtUser, edtPass;
+
     Button btnDangNhap, btnExit;
+    TextInputEditText tiedtPass, tiedtUser;
 
 
     @Override
@@ -48,9 +52,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        edtUser = (EditText)findViewById(R.id.edt_user);
-        edtPass = (EditText)findViewById(R.id.edt_pass);
+        tiedtUser = (TextInputEditText) findViewById(R.id.edt_user);
+        tiedtPass = (TextInputEditText) findViewById(R.id.edt_pass);
         btnDangNhap = (Button)findViewById(R.id.btn_dangnhap);
         btnExit = (Button)findViewById(R.id.btn_exit);
     }
+
+
 }

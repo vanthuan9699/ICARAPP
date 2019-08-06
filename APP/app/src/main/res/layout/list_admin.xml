@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/tv_taikhoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tài Khoản: TK1"
+        android:textSize="24sp"
+        android:textColor="#03A9F4"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/tv_sdt"
+        android:textColor="#090808"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:text="Số điện thoại: 01234567789"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/tv_tendaili"
+        android:textSize="20sp"
+        android:textColor="#FFC107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Công ty: Công ty TNHH"/>
+    <ImageView
+        android:id="@+id/img_edit"
+        android:src="@drawable/ic_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+
+        />
+    <ImageView
+        android:id="@+id/img_del"
+        android:layout_toLeftOf="@+id/img_edit"
+        android:src="@drawable/ic_delete"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
+
+
+</RelativeLayout>
