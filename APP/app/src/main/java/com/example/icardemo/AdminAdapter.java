@@ -1,21 +1,25 @@
 package com.example.icardemo;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 public class AdminAdapter extends BaseAdapter {
-    private Context context;
+    private AdminActivity context;
     private int layout;
     private List<Admin> adminList;
 
-    public AdminAdapter(Context context, int layout, List<Admin> adminList) {
+    public AdminAdapter(AdminActivity context, int layout, List<Admin> adminList) {
         this.context = context;
         this.layout = layout;
         this.adminList = adminList;
@@ -58,11 +62,49 @@ public class AdminAdapter extends BaseAdapter {
         }else {
             holder = (ViewHolder) view.getTag();
         }
-        Admin admin = adminList.get(i);
+        final Admin admin = adminList.get(i);
 
         holder.txtTaikhoan.setText(admin.getTaikhoan());
         holder.txtSdt.setText("Số điện thoại: " + admin.getSDT());
         holder.txtTendaili.setText(admin.getTenDaiLi());
+
+
+        //bắt sự kiện xóa và sửa
+        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UpdateADActivity.class);
+                intent.putExtra("dataAdmin", admin);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                XacNhanXoa(admin.getTaikhoan(), admin.getId());
+
+            }
+        });
+
+
         return view;
+    }
+    private void XacNhanXoa(String ten, final int id){
+        AlertDialog.Builder dialogXoa = new AlertDialog.Builder(context);
+        dialogXoa.setMessage("Bạn có muốn xóa tài khoản " + ten + " không?");
+        dialogXoa.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                context.DeleteAdmin(id);
+            }
+        });
+        dialogXoa.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        dialogXoa.show();
     }
 }

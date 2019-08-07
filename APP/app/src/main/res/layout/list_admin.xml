@@ -31,20 +31,20 @@
         android:text="Công ty: Công ty TNHH"/>
     <ImageView
         android:id="@+id/img_edit"
-        android:src="@drawable/ic_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:src="@drawable/edit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
 
         />
     <ImageView
         android:id="@+id/img_del"
         android:layout_toLeftOf="@+id/img_edit"
-        android:src="@drawable/ic_delete"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:src="@drawable/delete"
+        android:layout_marginTop="30dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
 
         />
 

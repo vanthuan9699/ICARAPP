@@ -4,7 +4,7 @@
     <item
         android:title="Thêm"
         android:id="@+id/it_menu"
-        android:icon="@drawable/ic_add"
+        android:icon="@drawable/add"
         app:showAsAction="always"
         >
 

@@ -1,6 +1,8 @@
 package com.example.icardemo;
 
-public class Admin {
+import java.io.Serializable;
+
+public class Admin implements Serializable {
     private int id;
     private String taikhoan;
     private String matkhau;
