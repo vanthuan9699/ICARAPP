@@ -1,4 +1,4 @@
-package com.example.icardemo;
+package com.example.icardemo.Main;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
+import com.example.icardemo.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this,android.R.style.Theme_DeviceDefault_Light_Dialog);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_DeviceDefault_Light_Dialog);
                 builder.setTitle("Bạn có muốn thoát");
                 builder.setMessage("Hãy lựa chọn bên dưới để xác nhận");
                 builder.setIcon(android.R.drawable.ic_dialog_alert);
@@ -68,15 +67,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void login(){
+
+    private void login() {
         StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.112:81/icarserver/login.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if (response.contains("1")){
+                        if (response.contains("1")) {
                             startActivity(new Intent(getApplicationContext(), AdminActivity.class));
-                        }else {
-                            Toast.makeText(getApplicationContext(), "Wrong username or password",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 }
-        ){
+        ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -98,16 +98,16 @@ public class MainActivity extends AppCompatActivity {
         };
         Volley.newRequestQueue(this).add(request);
     }
-    private void login1(){
+
+    private void login1() {
         StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.112:81/icarserver/login.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if (response.contains("2")){
+                        if (response.contains("2")) {
                             startActivity(new Intent(getApplicationContext(), MemberActivity.class));
-                        }else {
-                            Toast.makeText(getApplicationContext(), "Wrong username or password",Toast.LENGTH_SHORT).show();
-
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -117,13 +117,14 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 }
-        ){
+        ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("taikhoan", edtTaikhoan.getText().toString().trim());
                 params.put("matkhau", edtMatkhau.getText().toString().trim());
-                return params;            }
+                return params;
+            }
         };
         Volley.newRequestQueue(this).add(request);
     }
@@ -132,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
         btnHuy = findViewById(R.id.btn_huy);
         edtTaikhoan = findViewById(R.id.edt_taikhoan);
         edtMatkhau = findViewById(R.id.edt_matkhau);
-
     }
 
 

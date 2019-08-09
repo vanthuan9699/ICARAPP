@@ -1,9 +1,8 @@
-package com.example.icardemo;
+package com.example.icardemo.Main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -15,6 +14,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.icardemo.Adapter.MemberAdapter;
+import com.example.icardemo.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

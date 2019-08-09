@@ -1,16 +1,21 @@
-package com.example.icardemo;
+package com.example.icardemo.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.reflect.Member;
+import com.example.icardemo.Main.Admin;
+import com.example.icardemo.Main.MemberActivity;
+import com.example.icardemo.R;
+import com.example.icardemo.Main.SaveActivity;
+
 import java.util.List;
 
 public class MemberAdapter extends BaseAdapter {
@@ -40,7 +45,7 @@ public class MemberAdapter extends BaseAdapter {
 
     private class ViewHolder{
         TextView tvTentaikhoan, tvSolancon;
-        Button btnTinhma;
+        Button btnTinhma, btnLuu;
         EditText edtMamay, edtMakichhoat;
 
     }
@@ -55,6 +60,7 @@ public class MemberAdapter extends BaseAdapter {
             holder.tvTentaikhoan =  view.findViewById(R.id.tv_taikhoan1);
             holder.tvSolancon =  view.findViewById(R.id.tv_solancon);
             holder.btnTinhma = view.findViewById(R.id.btn_tinhma);
+            holder.btnLuu = view.findViewById(R.id.btn_lưu);
             holder.edtMamay = view.findViewById(R.id.edt_mamay);
             holder.edtMakichhoat = view.findViewById(R.id.edt_makichhoat);
 
@@ -65,7 +71,7 @@ public class MemberAdapter extends BaseAdapter {
         final Admin admin = list.get(i);
         holder.tvTentaikhoan.setText(admin.getTaikhoan());
         holder.tvSolancon.setText("Số lần còn "+ admin.getSoLanSuDung());
-
+        //tính mã bằng mã máy * 2
         holder.btnTinhma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,7 +83,22 @@ public class MemberAdapter extends BaseAdapter {
 
             }
         });
+        // lưu tính mã vào database
+        holder.btnLuu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context1, SaveActivity.class);
+                intent.putExtra("dataAdmin", admin);
+                String mamay = holder.edtMamay.getText().toString();
+                String makichhoat = holder.edtMakichhoat.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString("mamay", mamay);
+                bundle.putString("makichhoat", makichhoat);
+                intent.putExtra("", bundle);
+                context1.startActivity(intent);
 
+            }
+        });
 
 
 

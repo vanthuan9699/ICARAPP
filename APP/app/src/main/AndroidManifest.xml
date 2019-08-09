@@ -11,11 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MemberActivity"></activity>
-        <activity android:name=".UpdateADActivity" />
-        <activity android:name=".AddAdminActivity" />
-        <activity android:name=".AdminActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main.SaveActivity"></activity>
+        <activity android:name=".Main.MemberActivity" />
+        <activity android:name=".Main.UpdateADActivity" />
+        <activity android:name=".Main.AddAdminActivity" />
+        <activity android:name=".Main.AdminActivity" />
+        <activity android:name=".Main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.icardemo;
+package com.example.icardemo.Adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -11,7 +11,11 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.icardemo.Main.Admin;
+import com.example.icardemo.Main.AdminActivity;
+import com.example.icardemo.R;
+import com.example.icardemo.Main.UpdateADActivity;
 
 import java.util.List;
 

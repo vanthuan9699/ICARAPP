@@ -1,4 +1,4 @@
-package com.example.icardemo;
+package com.example.icardemo.Main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.icardemo.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -99,13 +100,13 @@ public class AddAdminActivity extends AppCompatActivity {
 
 
     private void AnhXa() {
-        btnThem = (Button) findViewById(R.id.btn_them);
-        btnHuy = (Button) findViewById(R.id.btn_huy);
-        edtTaikhoan = (EditText) findViewById(R.id.edt_add_tk);
-        edtMatkhau = (EditText) findViewById(R.id.edt_add_mk);
-        edtSDT = (EditText) findViewById(R.id.edt_add_sdt);
-        edtTendaili = (EditText) findViewById(R.id.edt_add_tendaili);
-        edtSolansd = (EditText) findViewById(R.id.edt_add_slsd);
+        btnThem =  findViewById(R.id.btn_them);
+        btnHuy =  findViewById(R.id.btn_huy);
+        edtTaikhoan =  findViewById(R.id.edt_add_tk);
+        edtMatkhau =  findViewById(R.id.edt_add_mk);
+        edtSDT =  findViewById(R.id.edt_add_sdt);
+        edtTendaili =  findViewById(R.id.edt_add_tendaili);
+        edtSolansd =  findViewById(R.id.edt_add_slsd);
 
 
     }

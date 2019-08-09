@@ -1,4 +1,4 @@
-package com.example.icardemo;
+package com.example.icardemo.Main;
 
 import java.io.Serializable;
 
