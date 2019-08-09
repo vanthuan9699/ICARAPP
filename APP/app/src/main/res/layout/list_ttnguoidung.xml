@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/tv_taikhoan1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tài Khoản: TK"
+        android:textSize="24sp"
+        android:textColor="#03A9F4"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:id="@+id/tv_solancon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số lần còn"
+        android:textSize="24sp"
+        android:textColor="#E91E63"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Mã máy        : "
+            android:textSize="24sp"
+            android:textColor="#FF9800"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            />
+        <EditText
+            android:id="@+id/edt_mamay"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Mã kích hoạ : "
+            android:textSize="24sp"
+            android:textColor="#FF9800"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            />
+        <EditText
+            android:id="@+id/edt_makichhoat"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_tinhma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tính mã"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="#E91E63"
+        android:textColor="#F7F5F0"/>
+
+
+
+
+
+</LinearLayout>

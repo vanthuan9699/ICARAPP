@@ -25,14 +25,12 @@ public class UpdateADActivity extends AppCompatActivity {
     Button btnUpdate, btnHuy;
 
     int id = 0;
-    String urlUpdate = "http://192.168.0.114:81/icarserver/update.php";
+    String urlUpdate = "http://192.168.0.112:81/icarserver/update.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_ad);
-
-
         Intent intent = getIntent();
         Admin admin = (Admin) intent.getSerializableExtra("dataAdmin");
         Toast.makeText(this, admin.getTaikhoan(), Toast.LENGTH_SHORT).show();

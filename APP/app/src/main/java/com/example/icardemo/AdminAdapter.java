@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class AdminAdapter extends BaseAdapter {
     private class ViewHolder{
         TextView txtTaikhoan, txtSdt, txtTendaili;
         ImageView imgDelete, imgEdit;
+        EditText edtTentaikhoan, edtSolancon;
 
     }
 
@@ -53,11 +55,14 @@ public class AdminAdapter extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
-            holder.txtTaikhoan = (TextView) view.findViewById(R.id.tv_taikhoan);
-            holder.txtSdt = (TextView) view.findViewById(R.id.tv_sdt);
-            holder.txtTendaili = (TextView) view.findViewById(R.id.tv_tendaili);
-            holder.imgDelete = (ImageView) view.findViewById(R.id.img_del);
-            holder.imgEdit = (ImageView) view.findViewById(R.id.img_edit);
+            holder.txtTaikhoan =  view.findViewById(R.id.tv_taikhoan);
+            holder.txtSdt =  view.findViewById(R.id.tv_sdt);
+            holder.txtTendaili =  view.findViewById(R.id.tv_tendaili);
+            holder.imgDelete =  view.findViewById(R.id.img_del);
+            holder.imgEdit =  view.findViewById(R.id.img_edit);
+
+
+
             view.setTag(holder);
         }else {
             holder = (ViewHolder) view.getTag();
@@ -67,7 +72,6 @@ public class AdminAdapter extends BaseAdapter {
         holder.txtTaikhoan.setText(admin.getTaikhoan());
         holder.txtSdt.setText("Số điện thoại: " + admin.getSDT());
         holder.txtTendaili.setText(admin.getTenDaiLi());
-
 
         //bắt sự kiện xóa và sửa
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {

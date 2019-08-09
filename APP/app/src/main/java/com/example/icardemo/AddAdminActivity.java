@@ -24,7 +24,7 @@ import java.util.Map;
 public class AddAdminActivity extends AppCompatActivity {
     EditText edtTaikhoan, edtMatkhau, edtSDT, edtTendaili, edtSolansd;
     Button btnThem, btnHuy;
-    String urlInsert = "http://192.168.0.114:81/icarserver/insert.php";
+    String urlInsert = "http://192.168.0.112:81/icarserver/insert.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

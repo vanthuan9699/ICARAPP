@@ -64,11 +64,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 login();
+                login1();
             }
         });
     }
     private void login(){
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.114:81/icarserver/login.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.112:81/icarserver/login.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -94,6 +95,35 @@ public class MainActivity extends AppCompatActivity {
                 params.put("matkhau", edtMatkhau.getText().toString().trim());
                 return params;
             }
+        };
+        Volley.newRequestQueue(this).add(request);
+    }
+    private void login1(){
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.112:81/icarserver/login.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (response.contains("2")){
+                            startActivity(new Intent(getApplicationContext(), MemberActivity.class));
+                        }else {
+                            Toast.makeText(getApplicationContext(), "Wrong username or password",Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        ){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("taikhoan", edtTaikhoan.getText().toString().trim());
+                params.put("matkhau", edtMatkhau.getText().toString().trim());
+                return params;            }
         };
         Volley.newRequestQueue(this).add(request);
     }
