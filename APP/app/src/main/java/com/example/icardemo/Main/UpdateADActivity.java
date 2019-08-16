@@ -26,7 +26,7 @@ public class UpdateADActivity extends AppCompatActivity {
     Button btnUpdate, btnHuy;
 
     int id = 0;
-    String urlUpdate = "http://192.168.0.112:81/icarserver/update.php";
+    String urlUpdate = "http://192.168.0.111:81/icarserver/update.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

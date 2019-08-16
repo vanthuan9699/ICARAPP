@@ -30,8 +30,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AdminActivity extends AppCompatActivity {
-    String urlGetData ="http://192.168.0.112:81/icarserver/admin.php";
-    String urlDelete = "http://192.168.0.112:81/icarserver/delete.php";
+    String urlGetData ="http://192.168.0.111:81/icarserver/admin.php";
+    String urlDelete = "http://192.168.0.111:81/icarserver/delete.php";
     ListView lvAdmin;
     ArrayList<Admin> arrayAdmin;
     AdminAdapter adapter;

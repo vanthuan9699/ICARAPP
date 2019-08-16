@@ -45,11 +45,10 @@ public class MemberAdapter extends BaseAdapter {
 
     private class ViewHolder{
         TextView tvTentaikhoan, tvSolancon;
-        Button btnTinhma, btnLuu;
+        Button btnTinhma;
         EditText edtMamay, edtMakichhoat;
 
     }
-
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         final ViewHolder holder;
@@ -60,7 +59,6 @@ public class MemberAdapter extends BaseAdapter {
             holder.tvTentaikhoan =  view.findViewById(R.id.tv_taikhoan1);
             holder.tvSolancon =  view.findViewById(R.id.tv_solancon);
             holder.btnTinhma = view.findViewById(R.id.btn_tinhma);
-            holder.btnLuu = view.findViewById(R.id.btn_lưu);
             holder.edtMamay = view.findViewById(R.id.edt_mamay);
             holder.edtMakichhoat = view.findViewById(R.id.edt_makichhoat);
 
@@ -70,23 +68,24 @@ public class MemberAdapter extends BaseAdapter {
         }
         final Admin admin = list.get(i);
         holder.tvTentaikhoan.setText(admin.getTaikhoan());
-        holder.tvSolancon.setText("Số lần còn "+ admin.getSoLanSuDung());
+        holder.tvSolancon.setText("" + admin.getSoLanSuDung());
+
+
         //tính mã bằng mã máy * 2
         holder.btnTinhma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String mamay = holder.edtMamay.getText().toString();
-                int mamay1 = Integer.parseInt(mamay);
+                String mamaytinh = holder.edtMamay.getText().toString();
+                int mamay1 = Integer.parseInt(mamaytinh);
                 int tong = mamay1 * 2;
-
                 holder.edtMakichhoat.setText(String.valueOf(tong));
 
-            }
-        });
-        // lưu tính mã vào database
-        holder.btnLuu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                String solancon = holder.tvSolancon.getText().toString();
+                int solan = Integer.parseInt(solancon);
+                int tonglan = solan - 1;
+                holder.tvSolancon.setText(String.valueOf(tonglan));
+
+
                 Intent intent = new Intent(context1, SaveActivity.class);
                 intent.putExtra("dataAdmin", admin);
                 String mamay = holder.edtMamay.getText().toString();
@@ -96,12 +95,23 @@ public class MemberAdapter extends BaseAdapter {
                 bundle.putString("makichhoat", makichhoat);
                 intent.putExtra("", bundle);
                 context1.startActivity(intent);
-
             }
         });
-
-
-
+        // lưu tính mã vào database
+//        holder.btnLuu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(context1, SaveActivity.class);
+//                intent.putExtra("dataAdmin", admin);
+//                String mamay = holder.edtMamay.getText().toString();
+//                String makichhoat = holder.edtMakichhoat.getText().toString();
+//                Bundle bundle = new Bundle();
+//                bundle.putString("mamay", mamay);
+//                bundle.putString("makichhoat", makichhoat);
+//                intent.putExtra("", bundle);
+//                context1.startActivity(intent);
+//            }
+//        });
         return view;
     }
 }

@@ -25,7 +25,7 @@ import java.util.Map;
 public class AddAdminActivity extends AppCompatActivity {
     EditText edtTaikhoan, edtMatkhau, edtSDT, edtTendaili, edtSolansd;
     Button btnThem, btnHuy;
-    String urlInsert = "http://192.168.0.112:81/icarserver/insert.php";
+    String urlInsert = "http://192.168.0.111:81/icarserver/insert.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,12 +66,9 @@ public class AddAdminActivity extends AppCompatActivity {
                         if (response.trim().equals("success")){
                             Toast.makeText(AddAdminActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(AddAdminActivity.this, AdminActivity.class));
-
                         }else {
                             Toast.makeText(AddAdminActivity.this, "Lỗi thêm", Toast.LENGTH_SHORT).show();
                         }
-
-
                     }
                 },
                 new Response.ErrorListener() {

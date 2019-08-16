@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -17,7 +18,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.icardemo.Main2Activity;
 import com.example.icardemo.R;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnDangNhap, btnHuy;
     EditText edtTaikhoan, edtMatkhau;
+    private ProgressBar loading;
 
 
     @Override
@@ -69,15 +74,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login() {
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.112:81/icarserver/login.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.111:81/icarserver/login.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response.contains("1")) {
                             startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                         } else {
-                            Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -100,29 +104,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login1() {
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.112:81/icarserver/login.php",
+        loading.setVisibility(View.VISIBLE);
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.0.111:81/icarserver/login.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if (response.contains("2")) {
-                            startActivity(new Intent(getApplicationContext(), MemberActivity.class));
+                        if (response.contains("2")){
+                            Intent intent = new Intent(MainActivity.this, MemberActivity.class);
+
+                            startActivity(intent);
+                            
+//                            startActivity(new Intent(getApplicationContext(), MemberActivity.class));
+
                         } else {
-                            Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                     }
                 }
-        ) {
+        ){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("taikhoan", edtTaikhoan.getText().toString().trim());
                 params.put("matkhau", edtMatkhau.getText().toString().trim());
+
                 return params;
             }
         };
@@ -133,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
         btnHuy = findViewById(R.id.btn_huy);
         edtTaikhoan = findViewById(R.id.edt_taikhoan);
         edtMatkhau = findViewById(R.id.edt_matkhau);
+        loading = findViewById(R.id.loading);
     }
-
-
 }

@@ -66,7 +66,6 @@ public class AdminAdapter extends BaseAdapter {
             holder.imgEdit =  view.findViewById(R.id.img_edit);
 
 
-
             view.setTag(holder);
         }else {
             holder = (ViewHolder) view.getTag();

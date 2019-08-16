@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 
 public class MemberActivity extends AppCompatActivity {
     String urlLayTT = "http://192.168.0.112:81/icarserver/laythongtin.php";
-    String urlGetData ="http://192.168.0.112:81/icarserver/admin.php";
+    String urlGetData ="http://192.168.0.111:81/icarserver/admin.php";
     Button btnTinhma;
     ArrayList<Admin> arrayMember;
     MemberAdapter adapter;
@@ -37,15 +38,12 @@ public class MemberActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member);
-
         lvTT =  findViewById(R.id.lv_layTT);
         arrayMember = new ArrayList<>();
         adapter = new MemberAdapter(this, R.layout.list_ttnguoidung, arrayMember);
         lvTT.setAdapter(adapter);
         GetData(urlGetData);
-
         AnhXa();
-
 
     }
     private void GetData(String url){
@@ -64,7 +62,6 @@ public class MemberActivity extends AppCompatActivity {
                                 object.getInt("SDT"),
                                 object.getString("TenDaiLi"),
                                 object.getInt("SoLan_SD")
-
                         ));
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -87,9 +84,6 @@ public class MemberActivity extends AppCompatActivity {
         btnTinhma = findViewById(R.id.btn_tinhma);
         edtMamay = findViewById(R.id.edt_mamay);
         edtMakichhoat = findViewById(R.id.edt_makichhoat);
-
-
-
     }
 
 

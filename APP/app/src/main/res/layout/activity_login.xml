@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#00BCD4"
+    android:background="#E91ECE"
     android:paddingTop="80dp"
     android:paddingRight="30dp"
     android:paddingLeft="30dp"
@@ -17,32 +17,32 @@
         android:textSize="30sp"
         />
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_taikhoan"
+        android:id="@+id/layout_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         >
         <EditText
-            android:id="@+id/edt_taikhoan"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tài khoản"
+            android:hint="Email"
             android:inputType="textPersonName"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_matkhau"
+        android:id="@+id/layoutpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         app:passwordToggleEnabled="true"
         >
         <EditText
-            android:id="@+id/edt_matkhau"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mật khẩu"
+            android:hint="Password"
             android:inputType="textPassword"
             />
 
@@ -55,15 +55,9 @@
         android:layout_marginTop="180dp"
         android:visibility="gone"/>
     <Button
-        android:id="@+id/btn_dangnhap"
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
         android:text="Login"/>
-    <Button
-        android:id="@+id/btn_huy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="290dp"
-        android:text="Exit"/>
 </RelativeLayout>

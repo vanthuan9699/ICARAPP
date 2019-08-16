@@ -24,8 +24,8 @@ import java.util.Map;
 
 public class SaveActivity extends AppCompatActivity {
     TextView tvTennguoidung, tvMaymay, tvMakichhoat;
-    Button btnOK, btnHuyok;
-    String urlSave = "http://192.168.0.112:81/icarserver/save.php";
+    Button btnOK;
+    String urlSave = "http://192.168.0.111:81/icarserver/save.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +50,6 @@ public class SaveActivity extends AppCompatActivity {
                 SaveMember(urlSave);
             }
         });
-        btnHuyok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     private void Anhxa() {
@@ -63,7 +57,6 @@ public class SaveActivity extends AppCompatActivity {
         tvMaymay = findViewById(R.id.tv_mamay);
         tvMakichhoat = findViewById(R.id.tv_makichhoat);
         btnOK = findViewById(R.id.btn_ok);
-        btnHuyok = findViewById(R.id.btn_huy_ok);
     }
     private void SaveMember(String url){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
